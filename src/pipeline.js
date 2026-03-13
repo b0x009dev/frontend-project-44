@@ -3,6 +3,7 @@ import { gameOver } from './game-over.js';
 
 import { brainEvenRules, brainEvenRound } from './games/brain-even-implementation.js';
 import { brainCalcRules, brainCalcRound } from './games/brain-calc-implementation.js';
+import { brainGCDRules, brainGCDRound } from './games/brain-gcd-implementation.js';
 
 const games = {
   'brain-even': {
@@ -12,6 +13,10 @@ const games = {
   'brain-calc': {
     gameRules: brainCalcRules,
     gameRound: brainCalcRound,
+  },
+  'brain-gcd': {
+    gameRules: brainGCDRules,
+    gameRound: brainGCDRound,
   },
 };
 

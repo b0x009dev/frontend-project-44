@@ -1,4 +1,5 @@
 import { input } from '../cli.js';
+import { getRandomNumber } from '../utils.js';
 
 const MAX_NUMBER = 10;
 
@@ -8,10 +9,10 @@ const OPERATIONS_COUNT = 3;
 const operations = ['+', '-', '*'];
 
 export const brainCalcRound = () => {
-  const operation = operations[Math.floor(Math.random() * OPERATIONS_COUNT)];
+  const operation = operations[getRandomNumber(0, OPERATIONS_COUNT - 1)];
 
-  const numberOne = Math.floor(Math.random() * (MAX_NUMBER + 1));
-  const numberTwo = Math.floor(Math.random() * (MAX_NUMBER + 1));
+  const numberOne = getRandomNumber(0, MAX_NUMBER);
+  const numberTwo = getRandomNumber(0, MAX_NUMBER);
 
   const question = `Question: ${numberOne} ${operation} ${numberTwo}`;
 

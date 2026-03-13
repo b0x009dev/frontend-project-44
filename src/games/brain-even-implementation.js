@@ -1,11 +1,12 @@
 import { input } from '../cli.js';
+import { getRandomNumber } from '../utils.js';
 
 const MAX_NUMBER = 100;
 
 export const brainEvenRules = () => `Answer "yes" if the number is even, otherwise answer "no".`;
 
 export const brainEvenRound = () => {
-  const number = Math.floor(Math.random() * (MAX_NUMBER + 1));
+  const number = getRandomNumber(0, MAX_NUMBER);
 
   const question = `Question: ${number}`;
 
