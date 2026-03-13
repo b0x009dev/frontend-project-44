@@ -2,7 +2,7 @@ import { input } from '../cli.js';
 
 const MAX_NUMBER = 100;
 
-export const brainEvenRules = () => `Answer 'yes' if number even otherwise answer 'no'.`;
+export const brainEvenRules = () => `Answer "yes" if number even otherwise answer "no".`;
 
 export const brainEvenRound = () => {
   const number = Math.floor(Math.random() * (MAX_NUMBER + 1));
