@@ -2,11 +2,16 @@ import { greeting } from './greeting.js';
 import { gameOver } from './game-over.js';
 
 import { brainEvenRules, brainEvenRound } from './games/brain-even-implementation.js';
+import { brainCalcRules, brainCalcRound } from './games/brain-calc-implementation.js';
 
 const games = {
   'brain-even': {
     gameRules: brainEvenRules,
     gameRound: brainEvenRound,
+  },
+  'brain-calc': {
+    gameRules: brainCalcRules,
+    gameRound: brainCalcRound,
   },
 };
 
