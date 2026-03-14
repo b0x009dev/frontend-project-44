@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/b0x009dev/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/b0x009dev/frontend-project-44/actions)",
+  "description": "A set of brain games for the command line",
   "homepage": "https://github.com/b0x009dev/frontend-project-44#readme",
   "bugs": {
     "url": "https://github.com/b0x009dev/frontend-project-44/issues"
@@ -11,9 +11,8 @@
     "url": "git+https://github.com/b0x009dev/frontend-project-44.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Мамаев Роман 01-25.ИСИП.ОД.11",
   "type": "module",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,11 +28,7 @@
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@eslint/json": "^1.1.0",
-    "@eslint/markdown": "^7.5.1",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "eslint": "^10.0.3",
-    "globals": "^17.4.0"
+    "eslint": "^10.0.3"
   }
 }
