@@ -33,15 +33,27 @@ const gameRegistry = {
 
 const GAME_ROUNDS = 3
 
-export const pipeline = (game) => {
+const getGame = (gameName) => {
+  const game = gameRegistry[gameName]
+
+  if (!game) {
+    throw new Error(`Unknown game: ${gameName}`)
+  }
+
+  return game
+}
+
+export const pipeline = (gameName) => {
   const userName = greeting()
 
-  console.log(gameRegistry[game].gameRules())
+  const game = getGame(gameName)
+
+  console.log(game.gameRules())
 
   let isSuccess = true
 
   for (let i = 0; i < GAME_ROUNDS; i++) {
-    const round = gameRegistry[game].gameRound()
+    const round = game.gameRound()
 
     console.log(`Question: ${round.question}`)
 
