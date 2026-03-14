@@ -1,4 +1,3 @@
-import { input } from '../cli.js'
 import { getRandomNumber } from '../utils.js'
 
 const MAX_NUMBER = 100
@@ -8,24 +7,12 @@ export const brainPrimeRules = () => `Answer "yes" if given number is prime. Oth
 export const brainPrimeRound = () => {
   const number = getRandomNumber(1, MAX_NUMBER)
 
-  const question = `Question: ${number}`
-
-  console.log(question)
-
-  const answer = input('Your answer: ')
-
-  let correctAnswer = isPrime(number) ? 'yes' : 'no'
-
-  const isSuccess = answer === correctAnswer
-
-  if (isSuccess) {
-    console.log('Correct!')
-  }
-  else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+  const round = {
+    question: `${number}`,
+    correctAnswer: isPrime(number) ? 'yes' : 'no',
   }
 
-  return isSuccess
+  return round
 }
 
 const isPrime = (n) => {

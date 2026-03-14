@@ -1,4 +1,3 @@
-import { input } from '../cli.js'
 import { getRandomNumber } from '../utils.js'
 
 const MAX_START = 20
@@ -18,24 +17,12 @@ export const brainProgressionRound = () => {
 
   const progressionStr = progression.join(' ').replace(progression[hiddenIndex].toString(), '..')
 
-  const question = `Question: ${progressionStr}`
-
-  console.log(question)
-
-  const answer = input('Your answer: ')
-
-  let correctAnswer = progression[hiddenIndex].toString()
-
-  const isSuccess = answer === correctAnswer
-
-  if (isSuccess) {
-    console.log('Correct!')
-  }
-  else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+  const round = {
+    question: progressionStr,
+    correctAnswer: `${progression[hiddenIndex]}`,
   }
 
-  return isSuccess
+  return round
 }
 
 const makeProgression = (start, step, count) => {

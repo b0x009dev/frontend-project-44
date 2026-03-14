@@ -1,4 +1,3 @@
-import { input } from '../cli.js'
 import { getRandomNumber } from '../utils.js'
 
 const MAX_NUMBER = 10
@@ -14,34 +13,24 @@ export const brainCalcRound = () => {
   const numberOne = getRandomNumber(0, MAX_NUMBER)
   const numberTwo = getRandomNumber(0, MAX_NUMBER)
 
-  const question = `Question: ${numberOne} ${operation} ${numberTwo}`
-
-  console.log(question)
-
-  const answer = input('Your answer: ')
-
   let correctAnswer
 
   if (operation === '+') {
-    correctAnswer = (+numberOne + +numberTwo).toString()
+    correctAnswer = (+numberOne + +numberTwo)
   }
 
   if (operation === '-') {
-    correctAnswer = (+numberOne - +numberTwo).toString()
+    correctAnswer = (+numberOne - +numberTwo)
   }
 
   if (operation === '*') {
-    correctAnswer = (+numberOne * +numberTwo).toString()
+    correctAnswer = (+numberOne * +numberTwo)
   }
 
-  const isSuccess = answer === correctAnswer
-
-  if (isSuccess) {
-    console.log('Correct!')
-  }
-  else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+  const round = {
+    question: `${numberOne} ${operation} ${numberTwo}`,
+    correctAnswer: `${correctAnswer}`,
   }
 
-  return isSuccess
+  return round
 }

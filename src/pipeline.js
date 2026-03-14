@@ -1,3 +1,4 @@
+import { input } from './cli.js'
 import { greeting } from './greeting.js'
 import { gameOver } from './game-over.js'
 
@@ -7,7 +8,7 @@ import { brainGCDRules, brainGCDRound } from './games/brain-gcd-implementation.j
 import { brainProgressionRules, brainProgressionRound } from './games/brain-progression-implementation.js'
 import { brainPrimeRules, brainPrimeRound } from './games/brain-prime-implementation.js'
 
-const games = {
+const gameRegistry = {
   'brain-even': {
     gameRules: brainEvenRules,
     gameRound: brainEvenRound,
@@ -35,15 +36,27 @@ const GAME_ROUNDS = 3
 export const pipeline = (game) => {
   const userName = greeting()
 
-  console.log(games[game].gameRules())
+  console.log(gameRegistry[game].gameRules())
 
   let isSuccess = true
 
   for (let i = 0; i < GAME_ROUNDS; i++) {
-    if (!games[game].gameRound()) {
+    const round = gameRegistry[game].gameRound()
+
+    console.log(`Question: ${round.question}`)
+
+    const answer = input(`Your answer: `)
+
+    const correctAnswer = round.correctAnswer
+
+    if (answer === correctAnswer) {
+      console.log('Correct!')
+    }
+    else {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
       isSuccess = false
       break
-    };
+    }
   }
 
   gameOver(isSuccess, userName)
