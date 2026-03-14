@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { pipeline } from '../src/pipeline.js';
+import { pipeline } from '../src/pipeline.js'
 
 const main = () => {
-  pipeline('brain-gcd');
-};
+  pipeline('brain-gcd')
+}
 
-main();
+main()

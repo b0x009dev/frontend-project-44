@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { greeting } from '../src/greeting.js';
+import { greeting } from '../src/greeting.js'
 
 const main = () => {
-  greeting();
-};
+  greeting()
+}
 
-main();
+main()

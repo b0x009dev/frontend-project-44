@@ -1,31 +1,31 @@
-import { input } from '../cli.js';
-import { getRandomNumber } from '../utils.js';
+import { input } from '../cli.js'
+import { getRandomNumber } from '../utils.js'
 
-const MAX_NUMBER = 100;
+const MAX_NUMBER = 100
 
-export const brainEvenRules = () => `Answer "yes" if the number is even, otherwise answer "no".`;
+export const brainEvenRules = () => `Answer "yes" if the number is even, otherwise answer "no".`
 
 export const brainEvenRound = () => {
-  const number = getRandomNumber(0, MAX_NUMBER);
+  const number = getRandomNumber(0, MAX_NUMBER)
 
-  const question = `Question: ${number}`;
+  const question = `Question: ${number}`
 
-  console.log(question);
+  console.log(question)
 
-  const answer = input('Your answer: ');
+  const answer = input('Your answer: ')
 
-  const correctAnswer = isEven(number) ? 'yes' : 'no';
+  const correctAnswer = isEven(number) ? 'yes' : 'no'
 
-  const isSuccess = answer === correctAnswer;
+  const isSuccess = answer === correctAnswer
 
   if (isSuccess) {
-    console.log('Correct!');
+    console.log('Correct!')
   }
   else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
   }
 
-  return isSuccess;
-};
+  return isSuccess
+}
 
-const isEven = number => number % 2 === 0;
+const isEven = number => number % 2 === 0
