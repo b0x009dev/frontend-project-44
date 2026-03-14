@@ -6,9 +6,9 @@ import { gameOver } from './game-over.js'
 const GAME_ROUNDS = 3
 
 export const pipeline = (gameName) => {
-  const userName = greeting()
-
   const game = getGame(gameName)
+
+  const userName = greeting()
 
   console.log(game.gameRules())
 

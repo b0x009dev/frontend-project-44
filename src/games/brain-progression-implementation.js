@@ -5,7 +5,7 @@ const MAX_STEP = 10
 const MIN_COUNT = 5
 const MAX_COUNT = 12
 
-export const brainProgressionRules = () => `What number is missing in the progression?`
+export const brainProgressionRules = () => 'What number is missing in the progression?'
 
 export const brainProgressionRound = () => {
   const start = getRandomNumber(0, MAX_START)
