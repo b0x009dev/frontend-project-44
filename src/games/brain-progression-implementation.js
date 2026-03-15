@@ -15,10 +15,8 @@ export const brainProgressionRound = () => {
 
   const progression = makeProgression(start, step, count)
 
-  const progressionStr = progression.join(' ').replace(progression[hiddenIndex].toString(), '..')
-
   const round = {
-    question: progressionStr,
+    question: progression.map((value, index) => (index === hiddenIndex ? '..' : String(value))).join(' '),
     correctAnswer: `${progression[hiddenIndex]}`,
   }
 
