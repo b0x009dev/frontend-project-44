@@ -1,11 +1,11 @@
 import { getRandomNumber } from '../utils.js'
 
-const MAX_NUMBER = 100
+const maxNumber = 100
 
 export const brainPrimeRules = () => 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 export const brainPrimeRound = () => {
-  const number = getRandomNumber(1, MAX_NUMBER)
+  const number = getRandomNumber(1, maxNumber)
 
   const round = {
     question: `${number}`,
