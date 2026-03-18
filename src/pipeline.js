@@ -4,21 +4,21 @@ import { gameOver } from './game-over.js'
 
 const gameRounds = 3
 
-export const pipeline = (gameRules, gameRound) => {
+export const pipeline = (gameData) => {
   const userName = greeting()
 
-  console.log(gameRules())
+  console.log(gameData.rules)
 
   let isSuccess = true
 
   for (let i = 0; i < gameRounds; i++) {
-    const round = gameRound()
+    const roundData = gameData.getRoundData()
 
-    console.log(`Question: ${round.question}`)
+    console.log(`Question: ${roundData.question}`)
 
     const answer = input(`Your answer: `)
 
-    const correctAnswer = round.correctAnswer
+    const correctAnswer = roundData.correctAnswer
 
     if (answer === correctAnswer) {
       console.log('Correct!')

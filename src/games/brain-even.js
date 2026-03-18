@@ -1,18 +1,30 @@
+import { pipeline } from '../pipeline.js'
 import { getRandomNumber } from '../utils.js'
 
-const maxNumber = 100
+export const startGame = () => {
+  pipeline(getGameData())
+}
 
-export const brainEvenRules = () => 'Answer "yes" if the number is even, otherwise answer "no".'
+export const getGameData = () => {
+  const gameData = {
+    rules: 'Answer "yes" if the number is even, otherwise answer "no".',
+    getRoundData,
+  }
 
-export const brainEvenRound = () => {
+  return gameData
+}
+
+const getRoundData = () => {
+  const maxNumber = 100
+
   const number = getRandomNumber(0, maxNumber)
 
-  const round = {
+  const roundData = {
     question: `${number}`,
     correctAnswer: isEven(number) ? 'yes' : 'no',
   }
 
-  return round
+  return roundData
 }
 
 const isEven = number => number % 2 === 0

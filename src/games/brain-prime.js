@@ -1,18 +1,30 @@
+import { pipeline } from '../pipeline.js'
 import { getRandomNumber } from '../utils.js'
 
-const maxNumber = 100
+export const startGame = () => {
+  pipeline(getGameData())
+}
 
-export const brainPrimeRules = () => 'Answer "yes" if given number is prime. Otherwise answer "no".'
+export const getGameData = () => {
+  const gameData = {
+    rules: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+    getRoundData,
+  }
 
-export const brainPrimeRound = () => {
+  return gameData
+}
+
+const getRoundData = () => {
+  const maxNumber = 100
+
   const number = getRandomNumber(1, maxNumber)
 
-  const round = {
+  const roundData = {
     question: `${number}`,
     correctAnswer: isPrime(number) ? 'yes' : 'no',
   }
 
-  return round
+  return roundData
 }
 
 const isPrime = (n) => {

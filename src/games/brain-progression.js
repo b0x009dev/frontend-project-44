@@ -1,13 +1,25 @@
+import { pipeline } from '../pipeline.js'
 import { getRandomNumber } from '../utils.js'
 
-const maxStart = 20
-const maxStep = 10
-const minCount = 5
-const maxCount = 12
+export const startGame = () => {
+  pipeline(getGameData())
+}
 
-export const brainProgressionRules = () => 'What number is missing in the progression?'
+export const getGameData = () => {
+  const gameData = {
+    rules: 'What number is missing in the progression?',
+    getRoundData,
+  }
 
-export const brainProgressionRound = () => {
+  return gameData
+}
+
+const getRoundData = () => {
+  const maxStart = 20
+  const maxStep = 10
+  const minCount = 5
+  const maxCount = 12
+
   const start = getRandomNumber(0, maxStart)
   const step = getRandomNumber(1, maxStep)
   const count = getRandomNumber(minCount, maxCount)
@@ -15,12 +27,12 @@ export const brainProgressionRound = () => {
 
   const progression = makeProgression(start, step, count)
 
-  const round = {
+  const roundData = {
     question: progression.map((value, index) => (index === hiddenIndex ? '..' : String(value))).join(' '),
     correctAnswer: `${progression[hiddenIndex]}`,
   }
 
-  return round
+  return roundData
 }
 
 const makeProgression = (start, step, count) => {

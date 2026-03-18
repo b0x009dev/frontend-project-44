@@ -1,19 +1,31 @@
+import { pipeline } from '../pipeline.js'
 import { getRandomNumber } from '../utils.js'
 
-const maxNumber = 100
+export const startGame = () => {
+  pipeline(getGameData())
+}
 
-export const brainGcdRules = () => 'Find the greatest common divisor of given numbers.'
+export const getGameData = () => {
+  const gameData = {
+    rules: 'Find the greatest common divisor of given numbers.',
+    getRoundData,
+  }
 
-export const brainGcdRound = () => {
+  return gameData
+}
+
+const getRoundData = () => {
+  const maxNumber = 100
+
   const numberOne = getRandomNumber(1, maxNumber)
   const numberTwo = getRandomNumber(1, maxNumber)
 
-  const round = {
+  const roundData = {
     question: `${numberOne} ${numberTwo}`,
     correctAnswer: `${getGcd(numberOne, numberTwo)}`,
   }
 
-  return round
+  return roundData
 }
 
 const getGcd = (numberOne, numberTwo) => {

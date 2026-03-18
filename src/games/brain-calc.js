@@ -1,40 +1,51 @@
+import { pipeline } from '../pipeline.js'
 import { getRandomNumber } from '../utils.js'
 
-const maxNumber = 10
+export const startGame = () => {
+  pipeline(getGameData())
+}
 
-export const brainCalcRules = () => 'What is the result of the expression?'
+export const getGameData = () => {
+  const gameData = {
+    rules: 'What is the result of the expression?',
+    getRoundData,
+  }
 
-const operations = ['+', '-', '*']
+  return gameData
+}
 
-export const brainCalcRound = () => {
+const getRoundData = () => {
+  const maxNumber = 10
+
+  const operations = ['+', '-', '*']
+
   const operation = operations[getRandomNumber(0, operations.length - 1)]
 
   const numberOne = getRandomNumber(0, maxNumber)
   const numberTwo = getRandomNumber(0, maxNumber)
 
-  let correctAnswer
+  const correctAnswer = calculate(operation, numberOne, numberTwo)
 
-  switch (operation) {
-    case '+':
-      correctAnswer = numberOne + numberTwo
-      break
-
-    case '-':
-      correctAnswer = numberOne - numberTwo
-      break
-
-    case '*':
-      correctAnswer = numberOne * numberTwo
-      break
-
-    default:
-      throw new Error(`Unexpected value: ${operation}`)
-  }
-
-  const round = {
+  const roundData = {
     question: `${numberOne} ${operation} ${numberTwo}`,
     correctAnswer: `${correctAnswer}`,
   }
 
-  return round
+  return roundData
+}
+
+const calculate = (operation, numberOne, numberTwo) => {
+  switch (operation) {
+    case '+':
+      return numberOne + numberTwo
+
+    case '-':
+      return numberOne - numberTwo
+
+    case '*':
+      return numberOne * numberTwo
+
+    default:
+      throw new Error(`Unexpected value: ${operation}`)
+  }
 }
