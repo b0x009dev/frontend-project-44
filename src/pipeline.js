@@ -1,21 +1,18 @@
 import { input } from './cli.js'
-import { getGame } from './game-registry.js'
 import { greeting } from './greeting.js'
 import { gameOver } from './game-over.js'
 
-const GAME_ROUNDS = 3
+const gameRounds = 3
 
-export const pipeline = (gameName) => {
-  const game = getGame(gameName)
-
+export const pipeline = (gameRules, gameRound) => {
   const userName = greeting()
 
-  console.log(game.gameRules())
+  console.log(gameRules())
 
   let isSuccess = true
 
-  for (let i = 0; i < GAME_ROUNDS; i++) {
-    const round = game.gameRound()
+  for (let i = 0; i < gameRounds; i++) {
+    const round = gameRound()
 
     console.log(`Question: ${round.question}`)
 

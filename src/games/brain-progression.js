@@ -1,16 +1,16 @@
 import { getRandomNumber } from '../utils.js'
 
-const MAX_START = 20
-const MAX_STEP = 10
-const MIN_COUNT = 5
-const MAX_COUNT = 12
+const maxStart = 20
+const maxStep = 10
+const minCount = 5
+const maxCount = 12
 
 export const brainProgressionRules = () => 'What number is missing in the progression?'
 
 export const brainProgressionRound = () => {
-  const start = getRandomNumber(0, MAX_START)
-  const step = getRandomNumber(1, MAX_STEP)
-  const count = getRandomNumber(MIN_COUNT, MAX_COUNT)
+  const start = getRandomNumber(0, maxStart)
+  const step = getRandomNumber(1, maxStep)
+  const count = getRandomNumber(minCount, maxCount)
   const hiddenIndex = getRandomNumber(0, count - 1)
 
   const progression = makeProgression(start, step, count)

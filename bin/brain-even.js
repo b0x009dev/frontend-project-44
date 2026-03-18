@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
 import { pipeline } from '../src/pipeline.js'
+import { brainEvenRules, brainEvenRound } from '../src/games/brain-even.js'
 
-const main = () => {
-  pipeline('brain-even')
-}
-
-main()
+pipeline(brainEvenRules, brainEvenRound)
