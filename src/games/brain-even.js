@@ -1,11 +1,11 @@
-import { pipeline } from '../pipeline.js'
+import { runGameEngine } from '../game-engine.js'
 import { getRandomNumber } from '../utils.js'
 
 export const startGame = () => {
-  pipeline(getGameData())
+  runGameEngine(getGameData())
 }
 
-export const getGameData = () => {
+const getGameData = () => {
   const gameData = {
     rules: 'Answer "yes" if the number is even, otherwise answer "no".',
     getRoundData,

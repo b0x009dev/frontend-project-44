@@ -4,7 +4,7 @@ import { gameOver } from './game-over.js'
 
 const gameRounds = 3
 
-export const pipeline = (gameData) => {
+export const runGameEngine = (gameData) => {
   const userName = greeting()
 
   console.log(gameData.rules)

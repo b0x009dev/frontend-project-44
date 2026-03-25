@@ -1,11 +1,11 @@
-import { pipeline } from '../pipeline.js'
+import { runGameEngine } from '../game-engine.js'
 import { getRandomNumber } from '../utils.js'
 
 export const startGame = () => {
-  pipeline(getGameData())
+  runGameEngine(getGameData())
 }
 
-export const getGameData = () => {
+const getGameData = () => {
   const gameData = {
     rules: 'What is the result of the expression?',
     getRoundData,
